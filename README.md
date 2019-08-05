@@ -21,14 +21,14 @@ $ gem install ruby-ioc
 
 IoC::Container.init do |container|
   # singleton value
-  container.register(:user_repository, UserRepository)
+  container.register(:checkout_repository, CheckoutRepository)
   
   # new instance value
   container.register(:checkout_service) { CheckoutService.new }
 end
 
 class  CheckoutService
-  inject :user_repository
+  inject :checkout_repository
   
   def  call(checkout)
     # valid checkout
